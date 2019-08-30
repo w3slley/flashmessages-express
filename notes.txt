@@ -1,0 +1,37 @@
+I will create a video about displaying flash messages using session-express and cookie-parser. 
+Modules used:
+
+express
+express3-handlebars
+cookie-parser
+express-session
+body-parser
+
+The main part will be:
+
+1)creating the alert message with bootstrap and html:
+
+{{#if flash}}
+    <div style="text-align: center" class="alert alert-dismissible alert-{{flash.type}}">
+        <button type="button" class="close"
+        data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>{{flash.intro}}</strong> {{{flash.message}}}
+    </div>
+{{/if}}
+
+2)inserting middleware in main.js file:
+
+app.use((req, res, next)=>{
+	res.locals.flash = req.session.flash
+	delete req.session.flash
+	next()
+})
+
+3)when user is saved, creating a flash session:
+
+req.session.flash = {
+	type: "type of the message - danger/success",
+	intro: "Some intro message",
+	message: "Some details about the message"
+	
+}

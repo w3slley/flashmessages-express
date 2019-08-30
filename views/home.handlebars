@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>flash messages</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    {{#if message}}
+    <div style="text-align: center" class="alert alert-{{message.type}}">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{message.intro}}</strong> {{message.message}}
+    </div>
+
+    {{/if}}
+    <div class="sign-up">
+      <h1>Sign up</h1>
+      <form method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="name" class="form-control"><br>
+        <label>Email:</label><br>
+        <input type="text" name="email" class="form-control"><br>
+        <label>Password:</label><br>
+        <input type="password" name="password" class="form-control"><br>
+        <label>Confirm your password:</label><br>
+        <input type="password" name="confirm" class="form-control"><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
